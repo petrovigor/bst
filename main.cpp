@@ -42,7 +42,7 @@ namespace bst {
     {
       insert(list);
     }
-  
+
     //disallow copy
     Tree(const Tree&) noexcept = delete;
     Tree& operator=(const Tree&) noexcept = delete;
@@ -72,7 +72,7 @@ namespace bst {
       erase(&_root, val);
     }
 #endif //broken
-  
+
   public:
     template<typename Order = preorder>
     auto traverse(
@@ -159,22 +159,15 @@ namespace bst {
   };
 }
 
-//binary search tree todos:
-// - auto balancing when inserting
-// - prettifying stdout (opt homework)
-// - add tests (check bst uses copy/move ctors cheaply)
-// - implement erase, search method
-// - implement Tree as std::container (implement iterators)
-
 int main() {
   using namespace bst;
 
-  Tree<int> b_tree {2, 1, 3};
+  Tree b_tree {2, 1, 3};
 
   auto print = [](int n) {
     std::cout << n << std::endl;
   };
-  
+
   b_tree.traverse<preorder>( print );
   b_tree.traverse<inorder>( print );
   b_tree.traverse<postorder>( print );
